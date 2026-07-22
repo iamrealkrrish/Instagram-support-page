@@ -1,10 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hello Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Krrish</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+    .upi-button {
+      display: block;
+      background: #fff;
+      color: #d62976;
+      font-weight: bold;
+      padding: 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: 0.3s;
+    }
+    .upi-button:hover {
+      background: #d62976;
+      color: #fff;
+    }
+    .amounts {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+    .amounts a {
+      background: #fff;
+      color: #4f5bd5;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .amounts a:hover {
+      background: #4f5bd5;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello</h1>
+  <div class="card">
+    <h1>Support My Work 💖</h1>
+    <p>Your contribution helps me keep creating!</p>
+    
+    <!-- Replace with your actual UPI ID -->
+    <a class="upi-button" href="upi://pay?pa=yourupiid@bank&pn=Krrish&cu=INR">
+      Pay via UPI
+    </a>
+
+    <div class="amounts">
+      <!-- Preset amounts -->
+      <a href="upi://pay?pa=yourupiid@bank&pn=Krrish&am=50&cu=INR">₹50</a>
+      <a href="upi://pay?pa=yourupiid@bank&pn=Krrish&am=100&cu=INR">₹100</a>
+      <a href="upi://pay?pa=yourupiid@bank&pn=Krrish&am=500&cu=INR">₹500</a>
+    </div>
+  </div>
 </body>
 </html>
-
