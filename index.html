@@ -41,13 +41,13 @@
     }
 
     #qrcode {
-      margin: 20px auto;
-      display: flex;
-      justify-content: center;
-      background: white;
-      padding: 10px;
-      border-radius: 15px;
-      width: fit-content;
+  margin: 20px auto;
+  display: inline-block;
+  background: white;
+  padding: 30px;          /* White border */
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
     }
 
     .upi-button,
@@ -109,7 +109,7 @@
 
   document.getElementById("upiLink").href = upiLink;
 
- new QRCode(document.getElementById("qrcode"), {
+new QRCode(document.getElementById("qrcode"), {
     text: upiLink,
     width: 220,
     height: 220,
@@ -117,24 +117,37 @@
     colorLight: "#ffffff"
 });
 
-  function downloadQR() {
-    const canvas = document.querySelector("#qrcode canvas");
-    const img = document.querySelector("#qrcode img");
+ function downloadQR() {
+  const qrCanvas = document.querySelector("#qrcode canvas");
 
-    const link = document.createElement("a");
-    link.download = "Arushi-UPI-QR.png";
-
-    if (canvas) {
-      link.href = canvas.toDataURL("image/png");
-    } else if (img) {
-      link.href = img.src;
-    } else {
-      alert("QR code not found.");
-      return;
-    }
-
-    link.click();
+  if (!qrCanvas) {
+    alert("QR code not found.");
+    return;
   }
+
+  const border = 30; // White border in pixels
+
+  // Create a new canvas larger than the QR code
+  const canvas = document.createElement("canvas");
+  canvas.width = qrCanvas.width + border * 2;
+  canvas.height = qrCanvas.height + border * 2;
+
+  const ctx = canvas.getContext("2d");
+
+  // Fill entire canvas with white
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the QR code in the center
+  ctx.drawImage(qrCanvas, border, border);
+
+  // Download
+  const link = document.createElement("a");
+  link.download = "Arushi-UPI-QR.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+}
+
 </script>
 
 </body>
