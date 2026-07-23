@@ -109,11 +109,13 @@
 
   document.getElementById("upiLink").href = upiLink;
 
-  new QRCode(document.getElementById("qrcode"), {
+ new QRCode(document.getElementById("qrcode"), {
     text: upiLink,
     width: 220,
-    height: 220
-  });
+    height: 220,
+    colorDark: "#000000",
+    colorLight: "#ffffff"
+});
 
   function downloadQR() {
     const canvas = document.querySelector("#qrcode canvas");
